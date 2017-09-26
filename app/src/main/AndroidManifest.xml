@@ -28,13 +28,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="org.artoolkit.ar.base.camera.CameraPreferencesActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".TimeSelectorActivity"></activity>
+        <activity android:name=".WaitActivity"></activity>
+        <activity android:name=".ArActivity"></activity>
     </application>
 
-    <activity android:name="org.artoolkit.ar.base.camera.CameraPreferencesActivity"></activity>
-    <activity android:name=".MainActivity"></activity>
-    <activity android:name=".TimeSelectorActivity"></activity>
-    <activity android:name=".WaitActivity"></activity>
-    <activity android:name=".ArActivity"></activity>
+
 
 
 </manifest>
