@@ -21,7 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ArActivity">
+        <activity android:name=".MovieSelectorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,6 +31,10 @@
     </application>
 
     <activity android:name="org.artoolkit.ar.base.camera.CameraPreferencesActivity"></activity>
+    <activity android:name=".MainActivity"></activity>
+    <activity android:name=".TimeSelectorActivity"></activity>
+    <activity android:name=".WaitActivity"></activity>
+    <activity android:name=".ArActivity"></activity>
 
 
 </manifest>
