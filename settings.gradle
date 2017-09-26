@@ -1,1 +1,1 @@
-include ':app', ':ArJpctBaseLib-release'
+include ':app', ':ArJpctBaseLib-release', ':BT300Ctrl'
