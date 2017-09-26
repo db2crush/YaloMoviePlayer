@@ -1,6 +1,5 @@
 package com.example.erunn.yalomovieplayer;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
@@ -19,12 +18,12 @@ import org.artoolkit.ar.jpct.TrackableObject3d;
 import java.io.IOException;
 import java.util.List;
 
-public class MainActivity extends ArJpctActivity {
+public class ArActivity extends ArJpctActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ar);
     }
 
     /**
