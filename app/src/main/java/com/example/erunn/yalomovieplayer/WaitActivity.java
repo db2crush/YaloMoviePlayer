@@ -26,6 +26,11 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
 /**
  * Created by erunn on 2017-09-26.
  */
@@ -107,7 +112,7 @@ public class WaitActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case  R.id.button7 :
-                    Intent toTime = new Intent(WaitActivity.this, AstroActivity.class);
+                    Intent toTime = new Intent(WaitActivity.this, ArActivity.class);
                     startActivity(toTime);
                     break;
 
