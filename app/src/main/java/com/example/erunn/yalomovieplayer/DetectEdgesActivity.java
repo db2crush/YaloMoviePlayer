@@ -18,7 +18,7 @@ import org.opencv.imgproc.Imgproc;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import co.zaven.digitalimageprocessing.R;
+import com.example.erunn.yalomovieplayer.R;
 
 public class DetectEdgesActivity extends BaseActivity {
 
