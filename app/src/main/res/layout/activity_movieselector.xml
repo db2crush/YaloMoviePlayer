@@ -44,13 +44,11 @@
         android:id="@+id/yaloMovieThe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
         android:textColor="@color/lyric"
         android:text="yalo 영화관에 오신 것을 환영합니다. \n 영화를 선택해주세요."
-
-
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="85dp" />
 
 
 </RelativeLayout>

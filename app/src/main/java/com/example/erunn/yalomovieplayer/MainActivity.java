@@ -84,13 +84,19 @@ public class MainActivity extends AppCompatActivity implements GyroDetector.ISwi
         mGyroDetector = new GyroDetector(this);
 
         String ext = Environment.getExternalStorageState();
+        Log.d("lyric",ext);
         if (ext.equals(Environment.MEDIA_MOUNTED)) {
+            Log.d("lyric","mountedasdf");
             path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/";
         } else {
             path = Environment.MEDIA_UNMOUNTED;
         }
+        Log.d("lyric",path);
+//        path = getFilesDir()+"";
+        Log.d("lyric",path+"");
 
         File smiFile = new File(path + "/lyric/lyric.smi");
+//        Log.d("lyric",smiFile+"");
         if (smiFile.isFile() && smiFile.canRead()) {
             useSmi = true;
             parsedSmi = new ArrayList<dataSmi>();
