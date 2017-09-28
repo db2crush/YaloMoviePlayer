@@ -30,4 +30,6 @@ dependencies {
     compile project(':ArJpctBaseLib-release')
     compile 'com.github.nkzawa:socket.io-client:0.3.0'
     compile project(':BT300Ctrl')
+    compile project(':openCVLibrary2411')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
