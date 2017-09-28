@@ -1,1 +1,2 @@
 include ':app', ':ArJpctBaseLib-release', ':BT300Ctrl'
+include ':openCVLibrary2411'
