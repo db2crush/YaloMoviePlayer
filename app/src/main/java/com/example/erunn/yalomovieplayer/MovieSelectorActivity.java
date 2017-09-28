@@ -30,7 +30,7 @@ public class MovieSelectorActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case  R.id.button :
-                    Intent toTime = new Intent(MovieSelectorActivity.this, DipActivity.class);
+                    Intent toTime = new Intent(MovieSelectorActivity.this, CameraActivity.class);
                     startActivity(toTime);
                     break;
 
