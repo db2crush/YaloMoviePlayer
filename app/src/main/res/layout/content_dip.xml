@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/header_vertical_margin"
             android:gravity="center"
-            android:text="@string/header"
+            android:text="CAPTURE IMGAE TO EDGE DETECTION"
             android:textSize="@dimen/header_text_size"
             android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
             <TextView
                 android:padding="4dp"
                 android:gravity="center"
-                android:text="@string/sample_image"
+                android:text="Captured Image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/select_option"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/select_option" />
+            android:text="TO EDGE DETECTION" />
 
     </LinearLayout>
 

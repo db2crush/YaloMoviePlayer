@@ -64,7 +64,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:textColor="@color/lyric"
-            android:text="자막 재생 준비중 \n 자막의 위치를 조절해주세요" />
+            android:text="자막 재생 준비중..." />
 
         <LinearLayout
             android:layout_width="match_parent"
