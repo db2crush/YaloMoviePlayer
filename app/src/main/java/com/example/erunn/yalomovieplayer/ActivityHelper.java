@@ -6,6 +6,7 @@ package com.example.erunn.yalomovieplayer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -46,8 +47,9 @@ public class ActivityHelper {
      * @param from an activity starts from.
      * @param to   type of activity which will be started.
      */
-    public static void startActivity(Activity from, Class<?> to) {
+    public static void startActivity(Activity from, Class<?> to, Bitmap bitmap) {
         Intent intent = new Intent(from, to);
+        intent.putExtra("bitmap",bitmap);
         from.startActivity(intent);
     }
 

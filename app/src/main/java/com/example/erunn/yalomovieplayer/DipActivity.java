@@ -5,13 +5,19 @@ package com.example.erunn.yalomovieplayer;
  */
 
 import android.Manifest;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -28,9 +34,11 @@ import butterknife.OnClick;
 
 
 public class DipActivity extends BaseActivity {
+    private static final int IMAGE_REQUEST = 2888;
+
 
     private static final String TAG = DipActivity.class.getSimpleName();
-
+    private Bitmap bitmap;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
@@ -53,21 +61,35 @@ public class DipActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dip);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
-        requestPermission();
+        Intent cameraIntent = new Intent(DipActivity.this, CameraActivity.class);
+        startActivityForResult(cameraIntent, IMAGE_REQUEST);
 
-        Glide.with(this).load(R.drawable.sun_mountain).into(sampleImage);
 
+    }
+
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK) {
+            bitmap = (Bitmap) data.getExtras().get("data");
+            Drawable drawable = new BitmapDrawable(getResources(), bitmap);
+            sampleImage.setImageDrawable(drawable);
+
+            setSupportActionBar(toolbar);
+            requestPermission();
+//            Glide.with(this).load(drawable).into(sampleImage);
+        }
     }
 
     @OnClick(R.id.select_option)
     void onClick() {
-        ActivityHelper.startActivity(this, ProcessingOptionsActivity.class);
+//        ActivityHelper.startActivity(this, ProcessingOptionsActivity.class, bitmap);
+        ActivityHelper.startActivity(this, DetectEdgesActivity.class, bitmap);
     }
 
     private void requestPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ) {
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE) ||
                     ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
@@ -85,7 +107,7 @@ public class DipActivity extends BaseActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,  @NonNull final String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull final String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case PERMISSIONS_REQUEST: {
                 if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {

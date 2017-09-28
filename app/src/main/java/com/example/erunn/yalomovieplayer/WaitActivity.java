@@ -2,11 +2,13 @@ package com.example.erunn.yalomovieplayer;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.DhcpInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -60,9 +62,11 @@ public class WaitActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_wait);
 
-        Button yaloButton = (Button)findViewById(R.id.button7);
+        Button ARButton = (Button)findViewById(R.id.button7);
+        Button LyricButton = (Button)findViewById(R.id.button8);
 //
-        yaloButton.setOnClickListener(listener);
+        ARButton.setOnClickListener(listener);
+        LyricButton.setOnClickListener(listener);
 
 
 
@@ -115,6 +119,29 @@ public class WaitActivity extends AppCompatActivity {
                     Intent toTime = new Intent(WaitActivity.this, ArActivity.class);
                     startActivity(toTime);
                     break;
+                case R.id.button8 :
+                    //        dialog
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(WaitActivity.this);
+
+                    alertDialogBuilder.setTitle("방법");
+                    alertDialogBuilder
+                            .setMessage("상영관 정면에 보이는 스크린을 바라봐주세요.\n" +
+                                    "보기 편한 각도로 스크린을 바라본 뒤 사진을 캡쳐해주세요.")
+                            .setCancelable(false)
+                            .setPositiveButton("확인",
+                                    new DialogInterface.OnClickListener(){
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            Intent toDip = new Intent(WaitActivity.this, DipActivity.class);
+                                            startActivity(toDip);
+
+                                        }
+
+
+                                    });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    alertDialog.show();
 
                 default:
                     break;

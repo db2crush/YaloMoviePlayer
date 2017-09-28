@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -32,6 +33,7 @@ public class ProcessingOptionsActivity extends BaseActivity {
         ButterKnife.bind(this);
         ActivityHelper.setupToolbar(this, toolbar);
 
+
         Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" +
                 getResources().getResourcePackageName(R.drawable.sun_mountain) + '/' +
                 getResources().getResourceTypeName(R.drawable.sun_mountain) + '/' +
@@ -39,6 +41,7 @@ public class ProcessingOptionsActivity extends BaseActivity {
 
         bundle = new Bundle();
         bundle.putParcelable(KEY_BITMAP, uri);
+
 
 
     }

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompatBase;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.ImageView;
 
 import org.opencv.android.Utils;
@@ -38,12 +39,19 @@ public class DetectEdgesActivity extends BaseActivity {
         ButterKnife.bind(this);
         ActivityHelper.setupToolbar(this, toolbar);
 
-        Uri path = getIntent().getExtras().getParcelable(KEY_BITMAP);
-        try {
-            detectEdges(BitmapHelper.readBitmapFromPath(this, path));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //
+        Bitmap bitmap = (Bitmap) getIntent().getParcelableExtra("bitmap");
+        detectEdges(bitmap);
+
+
+//
+//        Uri path = getIntent().getExtras().getParcelable(KEY_BITMAP);
+//        Log.d("path ", path+"");
+//        try {
+//            detectEdges(BitmapHelper.readBitmapFromPath(this, path));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void detectEdges(Bitmap bitmap) {
