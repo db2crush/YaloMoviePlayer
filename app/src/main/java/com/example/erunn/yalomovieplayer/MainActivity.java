@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements GyroDetector.ISwi
     public void onChanged(float gz) {
         degree += (gz / 1.75f);
 
-        if(Math.abs(gz) > 0.175f){
+        if(Math.abs(gz) > 0.0175f){
             mTextView.setRotation(degree);
             Log.d("gz", String.valueOf(gz));
         }
