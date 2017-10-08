@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements GyroDetector.ISwi
     public void onChanged(float gz) {
         degree += (gz / 1.75f);
 
-        if(Math.abs(gz) > 0.175f){
+        if(Math.abs(gz) > 0.0175f){
             mTextView.setRotation(degree);
             Log.d("gz", String.valueOf(gz));
         }
@@ -182,9 +182,28 @@ public class MainActivity extends AppCompatActivity implements GyroDetector.ISwi
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event){
-        if (event.getAction() == KeyEvent.ACTION_DOWN || (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_CENTER)){
-            mTextView.setRotation(0);
-            degree = 0;
+        float y, x;
+        switch(event.getKeyCode()){
+            case KeyEvent.KEYCODE_DPAD_CENTER :
+                mTextView.setRotation(0);
+                degree = 0;
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP :
+                y = mTextView.getY();
+                mTextView.setY(y-3.0f);
+                break;
+            case KeyEvent.KEYCODE_DPAD_DOWN :
+                y = mTextView.getY();
+                mTextView.setY(y+3.0f);
+                break;
+            case KeyEvent.KEYCODE_DPAD_LEFT :
+                x = mTextView.getX();
+                mTextView.setX(x-3.0f);
+                break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT :
+                x = mTextView.getX();
+                mTextView.setX(x+3.0f);
+                break;
         }
         return super.dispatchKeyEvent(event);
     }
