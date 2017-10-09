@@ -29,6 +29,9 @@
     <string name="waitDialogTitle">방법</string>
     <string name="waitDialog">상영관 정면에 보이는 스크린을 바라보고 캡처해주세요.</string>
 
+    <string name="edgeCheck">확인</string>
+    <string name="edgeInner">자막의 위치가 조절되었습니다. 상영 시작 후 수동으로 조절 가능합니다.</string>
+
     <!--for english-->
     <string name="emovieTitle">Choose your movie</string>
     <string name="emovieYalo">Yalo</string>
@@ -43,6 +46,9 @@
     <string name="ewaitDialogTitle">solution</string>
     <string name="ewaitDialog">See the Screen and Capture.</string>
 
+    <string name="eedgeCheck">OK</string>
+    <string name="eedgeInner">The lyric position automatically be set. You can change manually.</string>
+
     <!--for china-->
     <string name="cmovieTitle">選澤 映畵</string>
     <string name="cmovieYalo">Yalo</string>
@@ -56,5 +62,8 @@
     <string name="cwaitPosition">爲置 調絶</string>
     <string name="cwaitDialogTitle">房法</string>
     <string name="cwaitDialog">目 影, 事</string>
+
+    <string name="cedgeCheck">確認</string>
+    <string name="cedgeInner">字幕 爲致 調節</string>
 
 </resources>

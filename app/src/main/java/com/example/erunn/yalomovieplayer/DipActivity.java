@@ -21,6 +21,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -59,7 +60,10 @@ public class DipActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dip);
+
         ButterKnife.bind(this);
         Intent cameraIntent = new Intent(DipActivity.this, CameraActivity.class);
         startActivityForResult(cameraIntent, IMAGE_REQUEST);
@@ -77,6 +81,7 @@ public class DipActivity extends BaseActivity {
 
             setSupportActionBar(toolbar);
             requestPermission();
+            onClick();
 //            Glide.with(this).load(drawable).into(sampleImage);
         }
     }
@@ -85,6 +90,7 @@ public class DipActivity extends BaseActivity {
     void onClick() {
 //        ActivityHelper.startActivity(this, ProcessingOptionsActivity.class, bitmap);
         ActivityHelper.startActivity(this, DetectEdgesActivity.class, bitmap);
+        finish();
     }
 
     private void requestPermission() {
