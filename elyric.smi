@@ -1,0 +1,56 @@
+<SAMI>
+<HEAD>
+<TITLE>yalo</TITLE>
+<STYLE TYPE="text/css">
+P { margin-left:8pt; margin-right:8pt; margin-bottom:2pt;
+    margin-top:2pt; font-size:14pt; text-align:center;
+    font-family:굴림, Arial; font-weight:normal; color:white;
+    background-color:black; }
+.EN { Name:English; lang:en-US; SAMIType:CC; }
+</STYLE>
+</HEAD>
+<BODY>
+<SYNC Start=3000><P Class=KRCC>
+Hello, welcome to yalo movie theater.
+<SYNC Start=6000><P Class=KRCC>
+This lyric file is for English user.
+<SYNC Start=9000><P Class=KRCC>
+This is made by yalo.
+<SYNC Start=12000><P Class=KRCC>
+Lyric plays with 1 min sample movie.
+<SYNC Start=15000><P Class=KRCC>
+Lyric plays every 3 seconds.
+<SYNC Start=18000><P Class=KRCC>
+Thanks you.
+<SYNC Start=21000><P Class=KRCC>
+Now start !
+<SYNC Start=24000><P Class=KRCC>
+Foreign language service via smart glass.
+<SYNC Start=27000><P Class=KRCC>
+If smart glass will be famous on following days,
+<SYNC Start=30000><P Class=KRCC>
+then do not be disturbed by language,
+<SYNC Start=33000><P Class=KRCC>
+can see the movie.
+<SYNC Start=36000><P Class=KRCC>
+The lyric position is auto-placed by image-processing.
+<SYNC Start=39000><P Class=KRCC>
+Also can be placed by manually.
+<SYNC Start=42000><P Class=KRCC>
+User can enjoy augmented content.
+<SYNC Start=45000><P Class=KRCC>
+thanks.
+<SYNC Start=48000><P Class=KRCC>
+The end
+<SYNC Start=51000><P Class=KRCC>
+The End~!~!
+<SYNC Start=54000><P Class=KRCC>
+The End~!~!~!~!
+<SYNC Start=57000><P Class=KRCC>
+The End~!~!~!~!~!~!~!
+<SYNC Start=60000><P Class=KRCC>
+The End~!~!~!~!~!~!~!~!!
+<SYNC Start=63000><P Class=KRCC>
+The End~!~!`!~!~!~!~!~!~!~!`
+</BODY>
+</SAMI>

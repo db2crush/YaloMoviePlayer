@@ -1,0 +1,56 @@
+<SAMI>
+<HEAD>
+<TITLE>yalo</TITLE>
+<STYLE TYPE="text/css">
+P { margin-left:8pt; margin-right:8pt; margin-bottom:2pt;
+    margin-top:2pt; font-size:14pt; text-align:center;
+    font-family:굴림, Arial; font-weight:normal; color:white;
+    background-color:black; }
+.KRCC { Name:한국어; lang:ko-KR; SAMIType:CC; }
+</STYLE>
+</HEAD>
+<BODY>
+<SYNC Start=3000><P Class=KRCC>
+��ĥ�� ����! �׷��� ���̴� ������!
+<SYNC Start=6000><P Class=KRCC>
+���� ������!
+<SYNC Start=9000><P Class=KRCC>
+�� �ǹ�����! �¾ �츮 ��ī���� ���Ͽ�
+<SYNC Start=12000><P Class=KRCC>
+��ī�� �ε�! ����! ������ ����!
+<SYNC Start=15000><P Class=KRCC>
+��¥ ������ �� �� �ϴ±���
+<SYNC Start=18000><P Class=KRCC>
+�� �̺� ��ȣ����
+<SYNC Start=21000><P Class=KRCC>
+���� ���Դϱ�? ������ ���� ���� �ϼ���
+<SYNC Start=24000><P Class=KRCC>
+������ ������ �Ⱦ� ��
+<SYNC Start=27000><P Class=KRCC>
+���� �ڷ����� ���� �ڷ�����
+<SYNC Start=30000><P Class=KRCC>
+���� �󸶰� ��� �����ϱ� �ְ����� �����ؼ� ������
+<SYNC Start=33000><P Class=KRCC>
+������ �ֵ��� �˰� �ֽ��ϴ�
+<SYNC Start=36000><P Class=KRCC>
+�׸���...
+<SYNC Start=39000><P Class=KRCC>
+���� ������ �ҷ�
+<SYNC Start=42000><P Class=KRCC>
+���� �մ��÷�����?
+<SYNC Start=45000><P Class=KRCC>
+�̻��� ���� �����϶��� ��
+<SYNC Start=48000><P Class=KRCC>
+��... ����� ������ ������ Ȯ���ϰڽ��ϴ�
+<SYNC Start=51000><P Class=KRCC>
+�� �������̶� ����... �ڷ��� �����̾�?
+<SYNC Start=54000><P Class=KRCC>
+�Ƹ� �������̸� ��õ�� �������� �̴ϴ�
+<SYNC Start=57000><P Class=KRCC>
+�����Ͻ� ���� �������� ���õ� �� �������� �ͺ���
+<SYNC Start=60000><P Class=KRCC>
+������ �κб��� �� �ϳ� ������ �ʰ�...
+<SYNC Start=63000><P Class=KRCC>
+����!
+</BODY>
+</SAMI>
