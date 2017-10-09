@@ -144,6 +144,4 @@ public class DetectEdgesActivity extends BaseActivity {
         Utils.matToBitmap(edges, resultBitmap);
         BitmapHelper.showBitmap(this, resultBitmap, detectEdgesImageView);
     }
-
-
 }
