@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:text="YALO"
         android:layout_marginBottom="195dp"
+        android:layout_marginRight="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/yaloMovieThe"
-        android:layout_toStartOf="@+id/yaloMovieThe" />
+        android:layout_toLeftOf="@+id/button2"
+        />
 
     <Button
         android:textColor="@color/textColor"
@@ -25,7 +26,8 @@
         android:text="킬러의 보디가드"
         android:layout_alignBaseline="@+id/button"
         android:layout_alignBottom="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true" />
 
     <Button
         android:textColor="@color/textColor"
@@ -36,8 +38,9 @@
         android:text="킹스맨 골든서클"
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/yaloMovieThe"
-        android:layout_toEndOf="@+id/yaloMovieThe" />
+        android:layout_toRightOf="@+id/button2"
+        android:layout_marginLeft="10dp"
+        />
 
     <TextView
 
