@@ -13,6 +13,7 @@ import android.widget.Button;
  */
 
 public class LanguageActivity extends AppCompatActivity {
+    SharedPrefUtil sharedPrefUtil;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,27 +28,31 @@ public class LanguageActivity extends AppCompatActivity {
         koreanButton.setOnClickListener(listener);
         englishButton.setOnClickListener(listener);
         chinaButton.setOnClickListener(listener);
+        sharedPrefUtil = new SharedPrefUtil(getApplicationContext());
 
     }
     private View.OnClickListener listener = new View.OnClickListener() {
+
         public void onClick(View v) {
             switch (v.getId()){
                 case  R.id.koreanbutton:
-                    Intent toTime = new Intent(LanguageActivity.this, MovieSelectorActivity.class);
-                    startActivity(toTime);
+                    sharedPrefUtil.setSharedTest("korean");
+
                     break;
                 case R.id.englishbutton:
-                    Intent toMovie = new Intent(LanguageActivity.this, MovieSelectorActivity.class);
-                    startActivity(toMovie);
+                    sharedPrefUtil.setSharedTest("english");
+
                     break;
                 case R.id.chinabutton:
-                    Intent toc = new Intent(LanguageActivity.this, MovieSelectorActivity.class);
-                    startActivity(toc);
+                    sharedPrefUtil.setSharedTest("china");
+
                     break;
 
                 default:
                     break;
             }
+            Intent toMovie = new Intent(LanguageActivity.this, MovieSelectorActivity.class);
+            startActivity(toMovie);
         }
     };
 }

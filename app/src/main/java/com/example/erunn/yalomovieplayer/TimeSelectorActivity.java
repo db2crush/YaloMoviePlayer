@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by erunn on 2017-09-26.
@@ -24,6 +25,22 @@ public class TimeSelectorActivity extends AppCompatActivity {
         timeButton.setOnClickListener(listener);
         timeButton.setOnClickListener(listener);
         timeButton.setOnClickListener(listener);
+
+        TextView timeTitle = (TextView)findViewById(R.id.select_time_textview);
+
+        SharedPrefUtil sharedPrefUtil = new SharedPrefUtil(TimeSelectorActivity.this);
+        switch (sharedPrefUtil.getSharedTest()){
+            case "korean" :
+                timeTitle.setText(R.string.timeTitle);
+                break;
+            case "english" :
+                timeTitle.setText(R.string.etimeTitle);
+                break;
+            case "china" :
+                timeTitle.setText(R.string.ctimeTitle);
+                break;
+        }
+
 
 
     }

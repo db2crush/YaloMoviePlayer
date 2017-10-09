@@ -45,6 +45,7 @@ public class WaitActivity extends AppCompatActivity {
     private final String BROADCAST_MESSAGE = "org.artoolkit.ar.samples.ARNative";
     private BroadcastReceiver mReceiver = null;
     private Socket mSocket; //소켓 연결
+
     {
         try {
             mSocket = IO.socket("http://220.230.119.61:3000"); // 소켓 서버 주소
@@ -52,7 +53,9 @@ public class WaitActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
     private TextView mTextView; // 메세지 수신확인 텍스트 뷰
+    SharedPrefUtil sharedPrefUtil;
 
 
     @Override
@@ -62,17 +65,38 @@ public class WaitActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_wait);
 
-        Button ARButton = (Button)findViewById(R.id.button7);
-        Button LyricButton = (Button)findViewById(R.id.button8);
+        Button ARButton = (Button) findViewById(R.id.button7);
+        Button LyricButton = (Button) findViewById(R.id.button8);
 //
         ARButton.setOnClickListener(listener);
         LyricButton.setOnClickListener(listener);
 
+        TextView leftTime = (TextView) findViewById(R.id.textView);
+        Button augButton = (Button) findViewById(R.id.button7);
+        Button posButton = (Button) findViewById(R.id.button8);
 
+        sharedPrefUtil = new SharedPrefUtil(WaitActivity.this);
+        switch (sharedPrefUtil.getSharedTest()) {
+            case "korean":
+                leftTime.setText(R.string.waitTitle);
+                augButton.setText(R.string.waitAugment);
+                posButton.setText(R.string.waitPosition);
+                break;
+            case "english":
+                leftTime.setText(R.string.ewaitTitle);
+                augButton.setText(R.string.ewaitAugment);
+                posButton.setText(R.string.ewaitPosition);
+                break;
+            case "china":
+                leftTime.setText(R.string.cwaitTitle);
+                augButton.setText(R.string.cwaitAugment);
+                posButton.setText(R.string.cwaitPosition);
+                break;
+        }
 
 
         WifiManager wm = (WifiManager) getSystemService(WIFI_SERVICE); // 내 ip 주소 받아오는부분
-        DhcpInfo dhcpInfo = wm.getDhcpInfo() ;
+        DhcpInfo dhcpInfo = wm.getDhcpInfo();
         int serverIp = dhcpInfo.gateway;
 
         String ipAddress = String.format(
@@ -82,16 +106,16 @@ public class WaitActivity extends AppCompatActivity {
                 (serverIp >> 16 & 0xff),
                 (serverIp >> 24 & 0xff));
 
-        mSocket.emit("join",ipAddress); // 소켓 서버에 조인 메세지 보내기
+        mSocket.emit("join", ipAddress); // 소켓 서버에 조인 메세지 보내기
         mSocket.on("msg", onNewMessage); // 소켓 서버에서 메세지 수신
         mSocket.connect(); // 소켓 연결
 
         mTask = new TimerTask() {
             @Override
             public void run() {
-                mTextView = (TextView)findViewById(R.id.leftTime);
+                mTextView = (TextView) findViewById(R.id.leftTime);
                 long temp = DateToMill(left) - 1000;
-                if(temp == 0){
+                if (temp == 0) {
                     Intent toMain = new Intent(WaitActivity.this, MainActivity.class);
                     startActivity(toMain);
                     finish();
@@ -114,34 +138,67 @@ public class WaitActivity extends AppCompatActivity {
 
     private View.OnClickListener listener = new View.OnClickListener() {
         public void onClick(View v) {
-            switch (v.getId()){
-                case  R.id.button7 :
+            switch (v.getId()) {
+                case R.id.button7:
                     Intent toTime = new Intent(WaitActivity.this, ArActivity.class);
                     startActivity(toTime);
                     break;
-                case R.id.button8 :
+                case R.id.button8:
                     //        dialog
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(WaitActivity.this);
+                    switch (sharedPrefUtil.getSharedTest()) {
+                        case "korean":
+                            alertDialogBuilder.setTitle(R.string.waitDialogTitle);
+                            alertDialogBuilder
+                                    .setMessage(R.string.waitDialog)
+                                    .setCancelable(false)
+                                    .setPositiveButton("확인",
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    Intent toDip = new Intent(WaitActivity.this, DipActivity.class);
+                                                    startActivity(toDip);
+                                                }
+                                            });
+                            break;
+                        case "english":
+                            alertDialogBuilder.setTitle(R.string.ewaitDialogTitle);
+                            alertDialogBuilder
+                                    .setMessage(R.string.ewaitDialog)
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK",
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    Intent toDip = new Intent(WaitActivity.this, DipActivity.class);
+                                                    startActivity(toDip);
+                                                }
+                                            });
 
-                    alertDialogBuilder.setTitle("방법");
-                    alertDialogBuilder
-                            .setMessage("상영관 정면에 보이는 스크린을 바라봐주세요.\n" +
-                                    "보기 편한 각도로 스크린을 바라본 뒤 사진을 캡쳐해주세요.")
-                            .setCancelable(false)
-                            .setPositiveButton("확인",
-                                    new DialogInterface.OnClickListener(){
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            Intent toDip = new Intent(WaitActivity.this, DipActivity.class);
-                                            startActivity(toDip);
+                            break;
+                        case "china":
+                            alertDialogBuilder.setTitle(R.string.cwaitDialogTitle);
+                            alertDialogBuilder
+                                    .setMessage(R.string.cwaitDialog)
+                                    .setCancelable(false)
+                                    .setPositiveButton("確認",
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    Intent toDip = new Intent(WaitActivity.this, DipActivity.class);
+                                                    startActivity(toDip);
+                                                }
+                                            });
 
-                                        }
+                            break;
+                    }
 
 
-                                    });
                     AlertDialog alertDialog = alertDialogBuilder.create();
 
                     alertDialog.show();
+                    break;
+
 
                 default:
                     break;
@@ -174,11 +231,11 @@ public class WaitActivity extends AppCompatActivity {
         }
     };
 
-    private void showMessage(String username, String message){ //메세지 표시 : 이부분을 가지고 장난치면됨
-        mTextView.setText("IP: "+ username + "\n msg : " + message);
-        if(message.equals("start")){
+    private void showMessage(String username, String message) { //메세지 표시 : 이부분을 가지고 장난치면됨
+        mTextView.setText("IP: " + username + "\n msg : " + message);
+        if (message.equals("start")) {
 //            Intent intent = new Intent(BROADCAST_MESSAGE);
-            Toast.makeText(getApplicationContext(),"영화가 곧 시작합니다..",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "영화가 곧 시작합니다..", Toast.LENGTH_SHORT).show();
             mTextView.setText("start");
 
             Intent toMain = new Intent(WaitActivity.this, MainActivity.class);
@@ -198,7 +255,6 @@ public class WaitActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -216,7 +272,7 @@ public class WaitActivity extends AppCompatActivity {
          *  3. BroadCastReceiver를 익명클래스로 구현한다.
          *  4. intent filter와 BroadCastReceiver를 등록한다.
          * */
-        if(mReceiver != null) return;
+        if (mReceiver != null) return;
 
         final IntentFilter theFilter = new IntentFilter();
         theFilter.addAction(BROADCAST_MESSAGE);
@@ -224,9 +280,9 @@ public class WaitActivity extends AppCompatActivity {
         this.mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                int receviedData = intent.getIntExtra("value",0);
-                if(intent.getAction().equals(BROADCAST_MESSAGE)){
-                    Toast.makeText(context, "recevied Data : "+receviedData, Toast.LENGTH_SHORT).show();
+                int receviedData = intent.getIntExtra("value", 0);
+                if (intent.getAction().equals(BROADCAST_MESSAGE)) {
+                    Toast.makeText(context, "recevied Data : " + receviedData, Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -235,13 +291,13 @@ public class WaitActivity extends AppCompatActivity {
     }
 
     private void unregisterReceiver() {
-        if(mReceiver != null){
+        if (mReceiver != null) {
             this.unregisterReceiver(mReceiver);
             mReceiver = null;
         }
     }
 
-    private String MillToDate(long mills){
+    private String MillToDate(long mills) {
         String pattern = "HH:mm:ss";
         SimpleDateFormat formatter = new SimpleDateFormat(pattern);
         String date = (String) formatter.format(new Timestamp(mills));
@@ -249,7 +305,7 @@ public class WaitActivity extends AppCompatActivity {
         return date;
     }
 
-    private long DateToMill(String date){
+    private long DateToMill(String date) {
         String pattern = "HH:mm:ss";
         SimpleDateFormat formatter = new SimpleDateFormat(pattern);
 

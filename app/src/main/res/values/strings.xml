@@ -15,4 +15,46 @@
     <string name="ok">ok</string>
     <string name="sample_image">Sample image</string>
 
+    <!--for korean-->
+    <string name="movieTitle">영화를 선택해주세요</string>
+    <string name="movieYalo">얄로</string>
+    <string name="movieKiller">킬러의 보디가드</string>
+    <string name="movieKingsman">킹스맨 골든서클</string>
+
+    <string name="timeTitle">시간을 선택해주세요</string>
+
+    <string name="waitTitle">남은시간</string>
+    <string name="waitAugment">컨텐츠</string>
+    <string name="waitPosition">자막위치조절</string>
+    <string name="waitDialogTitle">방법</string>
+    <string name="waitDialog">상영관 정면에 보이는 스크린을 바라보고 캡처해주세요.</string>
+
+    <!--for english-->
+    <string name="emovieTitle">Choose your movie</string>
+    <string name="emovieYalo">Yalo</string>
+    <string name="emovieKiller">Bodyguard of Killer</string>
+    <string name="emovieKingsman">kingsMan of GoldenCircle</string>
+
+    <string name="etimeTitle">Choose your movie time</string>
+
+    <string name="ewaitTitle">Left Time</string>
+    <string name="ewaitAugment">content</string>
+    <string name="ewaitPosition">lyric position</string>
+    <string name="ewaitDialogTitle">solution</string>
+    <string name="ewaitDialog">See the Screen and Capture.</string>
+
+    <!--for china-->
+    <string name="cmovieTitle">選澤 映畵</string>
+    <string name="cmovieYalo">Yalo</string>
+    <string name="cmovieKiller">防敔者, 死使人</string>
+    <string name="cmovieKingsman">王, 昑圓</string>
+
+    <string name="ctimeTitle">選澤 時間</string>
+
+    <string name="cwaitTitle">餘有 時間</string>
+    <string name="cwaitAugment">樂</string>
+    <string name="cwaitPosition">爲置 調絶</string>
+    <string name="cwaitDialogTitle">房法</string>
+    <string name="cwaitDialog">目 影, 事</string>
+
 </resources>
